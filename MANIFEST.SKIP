@@ -1,0 +1,9 @@
+\.svn
+~$
+\.tar\.gz$
+MANIFEST.SKIP
+_build
+blib
+^LWPx-
+Build
+

@@ -1,0 +1,8 @@
+INSTALL
+MANIFEST
+MANIFEST.SKIP
+META.yml
+Makefile.PL
+lib/LWPx/TimedHTTP.pm
+t/01automagic.t
+t/02manual.t
