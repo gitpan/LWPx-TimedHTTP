@@ -11,7 +11,7 @@ use Time::HiRes qw(gettimeofday tv_interval);
 
 use vars qw(@ISA @EXTRA_SOCK_OPTS $VERSION);
 
-$VERSION = "1.0";
+$VERSION = "1.1";
 
 =pod
 
