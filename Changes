@@ -1,0 +1,8 @@
+1.2 2003-10-02 Client-Request-Connect-TIme
+Doh! Mislabelled in the docs
+
+1.1 2003-09-29 Build.PL
+Should really include this
+
+1.0 2003-09-27 Initial release 
+Based on conversations on the libwww mailing list and code by David Carter

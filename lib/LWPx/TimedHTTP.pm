@@ -11,7 +11,7 @@ use Time::HiRes qw(gettimeofday tv_interval);
 
 use vars qw(@ISA @EXTRA_SOCK_OPTS $VERSION);
 
-$VERSION = "1.1";
+$VERSION = "1.2";
 
 =pod
 
@@ -42,7 +42,7 @@ LWPx::TimedHTTP - time the different stages of an HTTP request
                                                                                                                                             
     my $ua = new LWP::UserAgent;                                                                                                            
     my $response = $ua->get("http://thegestalt.org");                                                                                       
-    printf  "%f\n", $response->header('Client-Connect-Time');    
+    printf  "%f\n", $response->header('Client-Request-Connect-Time');    
 
 
 
@@ -60,7 +60,7 @@ are occuring.
 
 All times returned are in microseconds
 
-=head2 Client-Connect-Time
+=head2 Client-Request-Connect-Time
 
 The time it took to connect to the remote server
 
