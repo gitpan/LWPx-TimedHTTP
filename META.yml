@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: LWPx-TimedHTTP
-version: 1.2
+version: 1.3
 license: perl
 distribution_type: module
 requires:
@@ -15,8 +15,14 @@ conflicts: {}
 provides:
   LWPx::TimedHTTP:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.2
+    version: 1.3
   LWPx::TimedHTTP::Socket:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.2
-generated_by: Module::Build version 0.20
+    version: 1.3
+  LWPx::TimedHTTP::https:
+    file: lib/LWPx/TimedHTTP.pm
+    version: 1.3
+  LWPx::TimedHTTP::https::Socket:
+    file: lib/LWPx/TimedHTTP.pm
+    version: 1.3
+generated_by: Module::Build version 0.21

@@ -11,7 +11,7 @@ use Time::HiRes qw(gettimeofday tv_interval);
 
 use vars qw(@ISA @EXTRA_SOCK_OPTS $VERSION);
 
-$VERSION = "1.2";
+$VERSION = "1.3";
 
 =pod
 
@@ -38,7 +38,10 @@ LWPx::TimedHTTP - time the different stages of an HTTP request
     use LWP::Protocol;                                                                                                                  
     use LWPx::TimedHTTP;    
                                                                                                                                         
-    LWP::Protocol::implementor('http', 'LWPx::TimedHTTP');                                                                   
+    LWP::Protocol::implementor('http',  'LWPx::TimedHTTP');                                                                   
+
+    # or for https ....
+    LWP::Protocol::implementor('https', 'LWPx::TimedHTTP::https');
                                                                                                                                             
     my $ua = new LWP::UserAgent;                                                                                                            
     my $response = $ua->get("http://thegestalt.org");                                                                                       
@@ -116,6 +119,8 @@ sub import {
     croak "Requiring of LWP::Protocol failed - $@" if $@;
 
     LWP::Protocol::implementor('http', __PACKAGE__);
+    LWP::Protocol::implementor('https', "LWPx::TimedHTTP::https");
+    
 }
 
 
@@ -406,5 +411,15 @@ package LWPx::TimedHTTP::Socket;
 use vars qw(@ISA);
 @ISA = qw(LWP::Protocol::http::Socket);
 
+package LWPx::TimedHTTP::https;
+eval { require LWP::Protocol::https };
+use vars qw(@ISA);
+@ISA = qw(LWPx::TimedHTTP);
+
+package LWPx::TimedHTTP::https::Socket;
+use vars qw(@ISA);
+@ISA = qw(LWP::Protocol::https::Socket);
+
+ 
 
 1;
