@@ -6,4 +6,5 @@ _build
 blib
 ^LWPx-
 Build
-
+Makefile
+\.log$

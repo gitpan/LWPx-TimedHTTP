@@ -11,7 +11,7 @@ use Time::HiRes qw(gettimeofday tv_interval);
 
 use vars qw(@ISA @EXTRA_SOCK_OPTS $VERSION);
 
-$VERSION = "1.3";
+$VERSION = "1.4";
 
 =pod
 
@@ -29,7 +29,7 @@ LWPx::TimedHTTP - time the different stages of an HTTP request
     # now just continue as normal                                                                                                               
     my $ua = new LWP::UserAgent;                                                                                                        
     my $response = $ua->get("http://thegestalt.org");                                                                                   
-    # ... with optional retrieving of metrics (in microseconds)
+    # ... with optional retrieving of metrics (in seconds)
     printf  "%f\n", $response->header('Client-Request-Connect-Time');  
 
 
@@ -61,7 +61,7 @@ are occuring.
 
 =head1 METRICS
 
-All times returned are in microseconds
+All times returned are in seconds
 
 =head2 Client-Request-Connect-Time
 
