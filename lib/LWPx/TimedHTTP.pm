@@ -11,7 +11,7 @@ use Time::HiRes qw(gettimeofday tv_interval);
 
 use vars qw(@ISA @EXTRA_SOCK_OPTS $VERSION);
 
-$VERSION = "1.4";
+$VERSION = "1.5";
 
 =pod
 
@@ -366,7 +366,7 @@ sub request
     {
         $n = $socket->read_entity_body($buf, $size);
         die "Can't read entity body: $!" unless defined $n;
-        if (! $response->header('Client-Response-Server-Time') ) { 
+        if (! defined $response->header('Client-Response-Server-Time') ) { 
             $this_time = [gettimeofday];
             $response->push_header('Client-Response-Server-Time', tv_interval($prev_time, $this_time));
             $prev_time = $this_time;

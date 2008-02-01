@@ -1,18 +1,12 @@
---- #YAML:1.0
+---
 name: LWPx-TimedHTTP
-version: 1.4
+version: 1.5
 author:
-  - Simon Wistow <simon@thegestalt.org>
-  - |-
-    Based entirely on work by David Carter - 
-    this module is a little light frobbing and some packaging of
-    code he posted to the libwww-perl mailing list in response to
-    one of my questions.
-  - |-
-    His code was, in turn, based on B<LWP::Protocol::http> by 
-    Gisle Aas which is distributed as part of the B<libwww> package.
+  - 'Simon Wistow <simon@thegestalt.org>'
 abstract: time the different stages of an HTTP request
 license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
   HTTP::Daemon: 0
   HTTP::Status: 0
@@ -22,14 +16,14 @@ requires:
 provides:
   LWPx::TimedHTTP:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.4
+    version: 1.5
   LWPx::TimedHTTP::Socket:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.4
   LWPx::TimedHTTP::https:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.4
   LWPx::TimedHTTP::https::Socket:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.4
-generated_by: Module::Build version 0.25
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
