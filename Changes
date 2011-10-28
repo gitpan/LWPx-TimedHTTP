@@ -1,3 +1,6 @@
+1.6 2011-10-27 Finally! An update!
+Upgrade to the latest version LWP::Protocol::http and add a new Client-Request-Dns-Time timing
+
 1.5 2007-02-01 Fix buglet
 Patch from Ton Voon to fix an occasion when you get a 0 Client Response Server Time (like on localhost)
 

@@ -8,3 +8,5 @@ blib
 Build
 Makefile
 \.log$
+^MYMETA\.yml$
+^MYMETA\.json$
