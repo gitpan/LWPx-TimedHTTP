@@ -1,3 +1,6 @@
+1.8 2011-11-01 Fix bug with DNS timings
+I had misnamed it and then written the test wrong. Which is just plain embarassing.
+
 1.7 2011-10-31 Force version of LWP
 There's a prototype mismatch with old versions of HTTP::Message->push_header (thanks Garth Webb)
 

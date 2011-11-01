@@ -44,9 +44,8 @@ if ($pid) {
 # child
         my $ua = new LWP::UserAgent;                                                                                                
         my $response = $ua->get($d->url."sleeptest"); 
-        my $t = $response->header('Client-Response-Server-Time');
-        ok(defined($t), "Got a Client-Response-Server-Time"); 
-        ok(defined($t), "Got a Client-Response-Dns-Time"); 
+        ok(defined($response->header('Client-Response-Server-Time')), "Got a Client-Response-Server-Time"); 
+        ok(defined($response->header('Client-Request-Dns-Time')), "Got a Client-Request-Dns-Time"); 
         POSIX::_exit(0);
 }
 

@@ -11,7 +11,7 @@ use Time::HiRes qw(gettimeofday tv_interval);
 
 use vars qw(@ISA @EXTRA_SOCK_OPTS $VERSION);
 
-$VERSION = "1.7";
+$VERSION = "1.8";
 
 =pod
 
@@ -21,33 +21,30 @@ LWPx::TimedHTTP - time the different stages of an HTTP request
 
 =head1 SYNOPSIS
 
+    # do the work for you
+    use LWP::UserAgent;                                                                                                                 
+    use LWPx::TimedHTTP qw(:autoinstall);                                                                                     
 
-# do the work for you
-use LWP::UserAgent;                                                                                                                 
-use LWPx::TimedHTTP qw(:autoinstall);                                                                                     
-
-# now just continue as normal                                                                                                               
-my $ua = new LWP::UserAgent;                                                                                                        
-my $response = $ua->get("http://thegestalt.org");                                                                                   
-# ... with optional retrieving of metrics (in seconds)
-printf  "%f\n", $response->header('Client-Request-Connect-Time');  
-
-
-# or if you don't like magic going on in the background
-use LWP::UserAgent;                                                                                                                 
-use LWP::Protocol;                                                                                                                  
-use LWPx::TimedHTTP;    
-
-LWP::Protocol::implementor('http',  'LWPx::TimedHTTP');                                                                   
-
-# or for https ....
-LWP::Protocol::implementor('https', 'LWPx::TimedHTTP::https');
-
-my $ua = new LWP::UserAgent;                                                                                                            
-my $response = $ua->get("http://thegestalt.org");                                                                                       
-printf  "%f\n", $response->header('Client-Request-Connect-Time');    
+    # now just continue as normal                                                                                                               
+    my $ua = LWP::UserAgent->new;                                                                                                        
+    my $response = $ua->get("http://thegestalt.org");                                                                                   
+    # ... with optional retrieving of metrics (in seconds)
+    printf  "%f\n", $response->header('Client-Request-Connect-Time');  
 
 
+    # or if you don't like magic going on in the background
+    use LWP::UserAgent;                                                                                                                 
+    use LWP::Protocol;                                                                                                                  
+    use LWPx::TimedHTTP;    
+
+    LWP::Protocol::implementor('http',  'LWPx::TimedHTTP');                                                                   
+
+    # or for https ....
+    LWP::Protocol::implementor('https', 'LWPx::TimedHTTP::https');
+
+    my $ua = LWP::UserAgent->new;                                                                                                            
+    my $response = $ua->get("http://thegestalt.org");                                                                                       
+    printf  "%f\n", $response->header('Client-Request-Connect-Time');    
 
 =head1 DESCRIPTION
 
@@ -406,7 +403,6 @@ sub request
     $response->push_header("Client-Junk" => \@junk) if @junk;
     
     # store the leftover info from the connect (had to wait until we had a response. . .)
-    #my $socket_timings = $socket->{_lwpx_timedhttp} || {};
     $response->push_header($_, $LWPx::TimedHTTP::Socket::timings{$_}) for keys %LWPx::TimedHTTP::Socket::timings;
     $response->push_header('Client-Request-Connect-Time', tv_interval($prev_time, $this_time));
     $prev_time = $this_time;
@@ -496,7 +492,7 @@ sub _get_addr {
         push(@addr, $h) if defined $h;
     }
     my $this_time = [gettimeofday];
-    $timings{'Client-Request-DNS->Time'} = tv_interval($prev_time, $this_time);
+    $timings{'Client-Request-Dns-Time'} = tv_interval($prev_time, $this_time);
     @addr;
 }
 

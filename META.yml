@@ -1,6 +1,6 @@
 ---
 name: LWPx-TimedHTTP
-version: 1.7
+version: 1.8
 author:
   - 'Simon Wistow <simon@thegestalt.org>'
 abstract: time the different stages of an HTTP request
@@ -18,7 +18,7 @@ configure_requires:
 provides:
   LWPx::TimedHTTP:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.7
+    version: 1.8
   LWPx::TimedHTTP::Socket:
     file: lib/LWPx/TimedHTTP.pm
   LWPx::TimedHTTP::https:
