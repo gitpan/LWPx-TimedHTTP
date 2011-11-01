@@ -11,7 +11,7 @@ use Time::HiRes qw(gettimeofday tv_interval);
 
 use vars qw(@ISA @EXTRA_SOCK_OPTS $VERSION);
 
-$VERSION = "1.6";
+$VERSION = "1.7";
 
 =pod
 
@@ -496,10 +496,6 @@ sub _get_addr {
         push(@addr, $h) if defined $h;
     }
     my $this_time = [gettimeofday];
-    # use Data::Dumper;
-    # for(0..10) {
-    #     print "$_:\n".Dumper([caller($_)])."\n\n";
-    # }
     $timings{'Client-Request-DNS->Time'} = tv_interval($prev_time, $this_time);
     @addr;
 }

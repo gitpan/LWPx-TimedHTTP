@@ -1,3 +1,6 @@
+1.7 2011-10-31 Force version of LWP
+There's a prototype mismatch with old versions of HTTP::Message->push_header (thanks Garth Webb)
+
 1.6 2011-10-27 Finally! An update!
 Upgrade to the latest version LWP::Protocol::http and add a new Client-Request-Dns-Time timing
 

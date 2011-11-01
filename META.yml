@@ -1,36 +1,31 @@
 ---
-abstract: 'time the different stages of an HTTP request'
+name: LWPx-TimedHTTP
+version: 1.7
 author:
   - 'Simon Wistow <simon@thegestalt.org>'
-build_requires: {}
-configure_requires:
-  Module::Build: 0.38
-dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110930'
+abstract: time the different stages of an HTTP request
 license: perl
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
-name: LWPx-TimedHTTP
+resources:
+  license: http://dev.perl.org/licenses/
+build_requires:
+  HTTP::Daemon: 0
+  Test::More: 0
+requires:
+  LWP::UserAgent: 6
+  Time::HiRes: 0
+configure_requires:
+  Module::Build: 0.35
 provides:
   LWPx::TimedHTTP:
     file: lib/LWPx/TimedHTTP.pm
-    version: 1.6
+    version: 1.7
   LWPx::TimedHTTP::Socket:
     file: lib/LWPx/TimedHTTP.pm
-    version: 0
   LWPx::TimedHTTP::https:
     file: lib/LWPx/TimedHTTP.pm
-    version: 0
   LWPx::TimedHTTP::https::Socket:
     file: lib/LWPx/TimedHTTP.pm
-    version: 0
-requires:
-  HTTP::Daemon: 0
-  HTTP::Status: 0
-  LWP::UserAgent: 0
-  Test::More: 0
-  Time::HiRes: 0
-resources:
-  license: http://dev.perl.org/licenses/
-version: 1.6
+generated_by: Module::Build version 0.35
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4

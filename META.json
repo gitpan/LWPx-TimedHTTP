@@ -14,6 +14,12 @@
    },
    "name" : "LWPx-TimedHTTP",
    "prereqs" : {
+      "build" : {
+         "requires" : {
+            "HTTP::Daemon" : 0,
+            "Test::More" : 0
+         }
+      },
       "configure" : {
          "requires" : {
             "Module::Build" : "0.38"
@@ -21,10 +27,7 @@
       },
       "runtime" : {
          "requires" : {
-            "HTTP::Daemon" : 0,
-            "HTTP::Status" : 0,
-            "LWP::UserAgent" : 0,
-            "Test::More" : 0,
+            "LWP::UserAgent" : "6",
             "Time::HiRes" : 0
          }
       }
@@ -32,7 +35,7 @@
    "provides" : {
       "LWPx::TimedHTTP" : {
          "file" : "lib/LWPx/TimedHTTP.pm",
-         "version" : "1.6"
+         "version" : "1.7"
       },
       "LWPx::TimedHTTP::Socket" : {
          "file" : "lib/LWPx/TimedHTTP.pm",
@@ -53,5 +56,6 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "1.6"
+   "version" : "1.7"
 }
+
